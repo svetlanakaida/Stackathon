@@ -1,0 +1,148 @@
+{
+   "nav_icon": "chester_icon.png",
+   "firstPhotoId":"112379",
+   "firstPhotoRotation":150,
+   "soundEffects": {
+      "navButton": {
+         "onEnter": {
+            "uri": "switch-flip.wav",
+            "attributionUri": "https://www.freesound.org/people/ianstargem/sounds/278205/"
+         },
+         "onClick": {
+            "uri": "menu-click.wav",
+            "attributionUri": "https://www.freesound.org/people/fins/sounds/146721/"
+         }
+      },
+      "infoButton": {
+         "onEnter": {
+            "uri": "switch-flip.wav",
+            "attributionUri": "https://www.freesound.org/people/ianstargem/sounds/278205/"
+         }
+      },
+      "ambient": {
+         "uri": "cafe.wav",
+         "attributionUri": "https://www.freesound.org/people/PapercutterJohn/sounds/322031/",
+         "loop": true,
+         "volume": 0
+      }
+   },
+   "photos":{
+      "112362":{
+         "rotationOffset": 0,
+         "uri":"1.jpg",
+         "tooltips":[
+            {
+               "text":"Von Newman",
+               "rotationY": 6,
+               "linkedPhotoId":"112379"
+            },
+            {
+               "text":"Kitchen",
+               "rotationY": -29,
+               "linkedPhotoId":"112355"
+            },
+            {
+               "text":"Way to Exit",
+               "rotationY": -45,
+               "linkedPhotoId":"112399"
+            },
+            {
+               "type": "image",
+               "rotationY": 145,
+               "width": 1.020,
+               "height": 1.388,
+               "source":"chalkboard-menu.jpg",
+               "attribution": "Photo by currystrumpet on flickr",
+               "attributionUri": "https://www.flickr.com/photos/currystrumpet/7895715748"
+            }
+         ]
+      },
+      "112379":{
+         "rotationOffset": 70,
+         "uri":"vonnewman2.jpg",
+         "tooltips":[
+            {
+               "text":"Senior",
+               "rotationY": 85,
+                "rotationX": 20,
+               "linkedPhotoId":"112362"
+            },
+            {
+               "type": "panelimage",
+               "rotationY": 115,
+               "width": 1.280,
+               "height": 1.280,
+               "source": "old-fashioned.jpg",
+               "text": "Bar open until midnight M-F and 2:00 a.m. weekends.",
+               "attribution": "Photo by Will Shenton",
+               "attributionUri": "https://commons.wikimedia.org/wiki/File:The_Young_Laddie_Cocktail.jpg"
+            },
+            {
+               "type": "textblock",
+               "title": "To ",
+               "text": "An American restaurant, bar, and private event space located in The Gansevoort Hotel in New York City, The Chester is designed to bring guests together at any time of day. It features a vibrant bar scene and a lively dining ara, as well as an exclusive boutique nightclub and outdoor beirgarten.",
+               "attribution": "360 Photos courtesy of Oyster.com, text from TheChester.com",
+               "rotationY": -30,
+               "width": 1.5,
+               "height": 1.5
+            }
+         ]
+      },
+      "112355":{
+         "rotationOffset": -30,
+         "uri":"2.jpg",
+         "tooltips":[
+            {
+               "text":"Restaurant",
+               "rotationY": 117.441,
+               "linkedPhotoId":"112362"
+            },
+            {
+               "type": "video",
+               "rotationY": 80,
+               "width": 2.560,
+               "height": 1.240,
+               "source":"Three-Cocktails.webm",
+               "muted":true
+            },
+            {
+               "type": "image",
+               "rotationY": -53,
+               "width": 1.020,
+               "height": 1.388,
+               "source":"chalkboard-menu.jpg",
+               "attribution": "Photo by currystrumpet on flickr",
+               "attributionUri": "https://www.flickr.com/photos/currystrumpet/7895715748"
+            }
+         ]
+      },
+      "112399":{
+         "rotationOffset": 90,
+         "uri":"3.jpg",
+         "tooltips":[
+            {
+               "text":"EXIT",
+               "rotationY": 150,
+               "linkedPhotoId":"112362"
+            },
+            {
+               "type": "video",
+               "rotationY": 80,
+               "width": 2.560,
+               "height": 1.240,
+               "source":"Three-Cocktails.webm",
+               "muted":true
+            },
+            {
+               "type": "image",
+               "rotationY": -53,
+               "width": 1.020,
+               "height": 1.388,
+               "source":"chalkboard-menu.jpg",
+               "attribution": "Photo by currystrumpet on flickr",
+               "attributionUri": "https://www.flickr.com/photos/currystrumpet/7895715748"
+            }
+         ]
+      }
+   }
+}
