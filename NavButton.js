@@ -18,7 +18,7 @@ import React from 'react';
 import {Animated, Image, Text, View, VrButton} from 'react-vr';
 
 import LoadingSpinner from './LoadingSpinner';
-
+import {Provider} from 'react-redux';
 const Easing = require('Easing');
 const VrSoundEffects = require('VrSoundEffects');
 
@@ -28,7 +28,7 @@ const VrSoundEffects = require('VrSoundEffects');
  * Once selected, the button disappears and a loading spinner takes its place.
  *
  * When using with CylinderLayer, set pixelsPerMeter to convert units, otherise
- * set translateZ to specify distance between camera and button. 
+ * set translateZ to specify distance between camera and button.
  */
 class NavButton extends React.Component {
   static defaultProps = {
@@ -58,6 +58,7 @@ class NavButton extends React.Component {
       borderWidthAnim: new Animated.Value(this._initialBorderWidth),
       hasFocus: false,
       lastTimeoutId: 0,
+      shouldRender: false
     };
   }
 
@@ -95,6 +96,7 @@ class NavButton extends React.Component {
 
     return (
       <VrButton
+       onClick ={this.props.resetKey}
         style={{
           // Use 'row' so label gets placed to right of the button.
           flexDirection: 'row',

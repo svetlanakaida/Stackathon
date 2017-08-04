@@ -53,10 +53,11 @@ class EscapeRoom extends React.Component {
       nextLocationId: null,
       rotation: null,
       string: '',
-      key: false
+
+
     };
     this.receiveKey=this.receiveKey.bind(this);
-
+    this.resetKey=this.resetKey.bind(this);
   }
 
   componentDidMount() {
@@ -67,9 +68,37 @@ class EscapeRoom extends React.Component {
       })
       .done();
   }
-   receiveKey(){
-     this.setState({key: true})
-     console.log('PRINT STATE', this.state)
+   receiveKey(index, numTooltips){
+     return () => {
+       const tooltipToChange = {};
+       tooltipToChange["tooltip" + index] = true;
+       this.setState(tooltipToChange, () => {
+       console.log('STATE PLEASE',this.state);
+       for (var i=1; i<numTooltips; i++) {
+         if (!this.state["tooltip" + i]) {
+
+           return;
+         }
+       }
+      this.setState({key:true});
+     })
+     }
+   }
+
+resetKey(index, numTooltips){
+     return () => {
+       const tooltipToChange = {};
+       tooltipToChange["tooltip" + index] = true;
+       this.setState(tooltipToChange, () => {
+       console.log('STATE PLEASE',this.state);
+       for (var i=1; i<numTooltips; i++) {
+         if (this.state["tooltip" + i]) {
+           this.setState({key:false});
+         }
+       }
+
+     })
+     }
    }
 
   init(tourConfig) {
@@ -98,6 +127,7 @@ class EscapeRoom extends React.Component {
     const ambient = this.state.data.soundEffects.ambient;
 
     return (
+
       <View>
        <Text> HI </Text>
         <View style={{transform: [{rotateY: rotation}]}}>
@@ -145,15 +175,17 @@ class EscapeRoom extends React.Component {
 
                 {tooltips &&
                   tooltips.map((tooltip, index) => {
+
                     // Iterate through items related to this location, creating either
                     // info buttons, which show tooltip on hover, or nav buttons, which
                     // change the current location in the tour.
                     if (tooltip.type) {
+
                       return (
 
                         <InfoButton
-                        receiveKey={this.receiveKey}
-                         statusKey={this.state.key}
+                        receiveKey={this.receiveKey(index, tooltips.length)}
+
                           key={index}
                           onEnterSound={asset(soundEffects.navButton.onEnter.uri)}
                           pixelsPerMeter={PPM}
@@ -163,9 +195,11 @@ class EscapeRoom extends React.Component {
                         />
                       );
                     }
-
+                   if(this.state.key){
                     return (
+
                       <NavButton
+                        resetKey={this.resetKey(index, tooltips.length)}
                         key={tooltip.linkedPhotoId}
                         isLoading={isLoading}
                         onClickSound={asset(soundEffects.navButton.onClick.uri)}
@@ -183,7 +217,7 @@ class EscapeRoom extends React.Component {
                         textLabel={tooltip.text}
                         translateX={degreesToPixels(tooltip.rotationY)}
                       />
-                    );
+                    )}
                   })}
                 {locationId == null &&
                   // Show a spinner while first pano is loading.
@@ -198,6 +232,7 @@ class EscapeRoom extends React.Component {
           </CylindricalPanel>
         </View>
       </View>
+
     );
   }
 }
