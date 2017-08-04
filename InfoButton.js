@@ -44,7 +44,8 @@ class InfoButton extends React.Component {
     this.state = {
       hasFocus: false,
       opacityAnim: new Animated.Value(0),
-      display: 'flex'
+      display: 'flex',
+      key: true
     };
   }
 
@@ -74,10 +75,17 @@ class InfoButton extends React.Component {
           ],
           display: this.state.display
         }
+  // onClick ={()=>{this.setState({display:'none'})}}
 
-    return (
+  if( this.state.key === false) {
+    console.log("Need a key")
+  }
+  else{
+  return (
+
+
       <VrButton
-
+ onClick ={this.props.receiveKey}
         style={style}
         ignoreLongClick={true}
         onInput={this.props.onInput}
@@ -88,6 +96,7 @@ class InfoButton extends React.Component {
         onEnterSound={this.props.onEnterSound}
         onExitSound={this.props.onExitSound}
         onLongClickSound={this.props.onLongClickSound}>
+         <Text> HI</Text>
         <Image
           style={{
             height: 0.3 * PPM,
@@ -98,6 +107,7 @@ class InfoButton extends React.Component {
             this._fadeIn();
           }}
           source={this.props.source}>
+          {console.log("PRINT", this.props.source)}
           <Animated.View
             style={{
               flexDirection: 'row',
@@ -108,11 +118,11 @@ class InfoButton extends React.Component {
             billboarding={'on'}>
             <Tooltip pixelsPerMeter={PPM} tooltip={this.props.tooltip} />
           </Animated.View>
-          <Text> HI</Text>
+
         </Image>
       </VrButton>
 
-    );
+    )};
   }
 }
 

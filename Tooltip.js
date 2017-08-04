@@ -15,14 +15,14 @@
 'use strict';
 
 import React from 'react';
-import {asset, Image, MediaPlayerState, Text, Video, VideoControl, View} from 'react-vr';
+import {asset, Image, MediaPlayerState, Text, Video, VideoControl, View, VrButton} from 'react-vr';
 
 /**
  * Tooltip encapsulates the different tooltip types used with the InfoButton
  * and renders either an image, image with text overlay, or text block.
  *
  * When using with CylinderLayer, set pixelsPerMeter to convert units, otherise
- * set translateZ to specify distance between camera and tooltip. 
+ * set translateZ to specify distance between camera and tooltip.
  */
 class Tooltip extends React.Component {
   static defaultProps = {
@@ -164,6 +164,34 @@ class PanelImageTooltip extends React.Component {
             }}>
             {tooltip.text}
           </Text>
+         <Text
+            style={{
+              color: 'white',
+              fontSize: fontSize.text,
+              textAlignVertical: 'center',
+            }}>
+            {tooltip.text}
+          </Text>
+          <VrButton>
+           <Image
+          style={{
+            height: 0.3 * PPM,
+            width: 0.3 * PPM,
+            flexDirection: 'row',
+          }}
+          source= {{uri:"../static_assets/info_icon.png"}}>
+          </Image>
+          </VrButton>
+           <VrButton>
+           <Image
+          style={{
+            height: 0.3 * PPM,
+            width: 0.3 * PPM,
+            flexDirection: 'row',
+          }}
+          source= {{uri:"../static_assets/task1.png"}}>
+          </Image>
+          </VrButton>
           {tooltip.attribution &&
             <Text
               style={{

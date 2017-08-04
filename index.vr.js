@@ -21,9 +21,9 @@ import {AppRegistry, asset, Image, Pano, Text, Sound, View} from 'react-vr';
 import InfoButton from './InfoButton';
 import NavButton from './NavButton';
 import LoadingSpinner from './LoadingSpinner';
-
+import Form from './Form';
 import CylindricalPanel from 'CylindricalPanel';
-
+import Animation from './Animation';
 // Web VR is only able to support a maxiumum texture resolution of 4096 px
 const MAX_TEXTURE_WIDTH = 4096;
 const MAX_TEXTURE_HEIGHT = 720;
@@ -52,7 +52,11 @@ class EscapeRoom extends React.Component {
       locationId: null,
       nextLocationId: null,
       rotation: null,
+      string: '',
+      key: false
     };
+    this.receiveKey=this.receiveKey.bind(this);
+
   }
 
   componentDidMount() {
@@ -63,6 +67,10 @@ class EscapeRoom extends React.Component {
       })
       .done();
   }
+   receiveKey(){
+     this.setState({key: true})
+     console.log('PRINT STATE', this.state)
+   }
 
   init(tourConfig) {
     // Initialize the tour based on data file.
@@ -91,6 +99,7 @@ class EscapeRoom extends React.Component {
 
     return (
       <View>
+       <Text> HI </Text>
         <View style={{transform: [{rotateY: rotation}]}}>
           {ambient &&
             <Sound
@@ -133,6 +142,7 @@ class EscapeRoom extends React.Component {
               }}>
               {/* Need container view, else using absolute position on buttons removes them from cylinder */}
               <View>
+
                 {tooltips &&
                   tooltips.map((tooltip, index) => {
                     // Iterate through items related to this location, creating either
@@ -140,7 +150,10 @@ class EscapeRoom extends React.Component {
                     // change the current location in the tour.
                     if (tooltip.type) {
                       return (
+
                         <InfoButton
+                        receiveKey={this.receiveKey}
+                         statusKey={this.state.key}
                           key={index}
                           onEnterSound={asset(soundEffects.navButton.onEnter.uri)}
                           pixelsPerMeter={PPM}
@@ -150,6 +163,7 @@ class EscapeRoom extends React.Component {
                         />
                       );
                     }
+
                     return (
                       <NavButton
                         key={tooltip.linkedPhotoId}
