@@ -96,7 +96,6 @@ class NavButton extends React.Component {
 
     return (
       <VrButton
-       onClick ={this.props.resetKey}
         style={{
           // Use 'row' so label gets placed to right of the button.
           flexDirection: 'row',
@@ -109,7 +108,10 @@ class NavButton extends React.Component {
           ],
         }}
         ignoreLongClick={true}
-        onClick={() => this._selected()}
+        onClick={() => {
+          this.props.resetKey()
+          this._selected()
+        }}
         onEnter={() => {
           if (!this.props.isLoading) {
             this.setState({hasFocus: true});

@@ -53,11 +53,11 @@ class EscapeRoom extends React.Component {
       nextLocationId: null,
       rotation: null,
       string: '',
-
+      rooms:{}
 
     };
     this.receiveKey=this.receiveKey.bind(this);
-    this.resetKey=this.resetKey.bind(this);
+     this.receiveKey=this.receiveKey.bind(this);
   }
 
   componentDidMount() {
@@ -68,6 +68,7 @@ class EscapeRoom extends React.Component {
       })
       .done();
   }
+    onTooltipClick =(answer) =>{ console.log(answer) }
    receiveKey(index, numTooltips){
      return () => {
        const tooltipToChange = {};
@@ -80,24 +81,23 @@ class EscapeRoom extends React.Component {
            return;
          }
        }
-      this.setState({key:true});
+      this.setState({
+              rooms: {
+              ...this.state.rooms,
+              [this.state.locationId]: true
+            }
+        })
      })
      }
    }
 
-resetKey(index, numTooltips){
+resetKey(){
      return () => {
        const tooltipToChange = {};
        tooltipToChange["tooltip" + index] = true;
-       this.setState(tooltipToChange, () => {
+       this.setState({tips:{}});
        console.log('STATE PLEASE',this.state);
-       for (var i=1; i<numTooltips; i++) {
-         if (this.state["tooltip" + i]) {
-           this.setState({key:false});
-         }
-       }
 
-     })
      }
    }
 
@@ -187,6 +187,7 @@ resetKey(index, numTooltips){
                         receiveKey={this.receiveKey(index, tooltips.length)}
 
                           key={index}
+                          onTooltipClick ={this.onTooltipClick}
                           onEnterSound={asset(soundEffects.navButton.onEnter.uri)}
                           pixelsPerMeter={PPM}
                           source={asset('info_icon.png')}
@@ -195,11 +196,10 @@ resetKey(index, numTooltips){
                         />
                       );
                     }
-                   if(this.state.key){
-                    return (
 
-                      <NavButton
-                        resetKey={this.resetKey(index, tooltips.length)}
+                    return (
+                      (this.state.rooms[tooltip.linkedPhotoId] || this.state.rooms[this.state.locationId]) && <NavButton
+                        resetKey={this.resetKey}
                         key={tooltip.linkedPhotoId}
                         isLoading={isLoading}
                         onClickSound={asset(soundEffects.navButton.onClick.uri)}
@@ -217,7 +217,7 @@ resetKey(index, numTooltips){
                         textLabel={tooltip.text}
                         translateX={degreesToPixels(tooltip.rotationY)}
                       />
-                    )}
+                    )
                   })}
                 {locationId == null &&
                   // Show a spinner while first pano is loading.

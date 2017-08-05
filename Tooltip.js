@@ -41,7 +41,7 @@ class Tooltip extends React.Component {
       case 'image':
         return <ImageTooltip tooltip={tooltip} pixelsPerMeter={PPM} />;
       case 'panelimage':
-        return <PanelImageTooltip tooltip={tooltip} pixelsPerMeter={PPM} />;
+        return <PanelImageTooltip onTooltipClick={this.props.onTooltipClick} tooltip={tooltip} pixelsPerMeter={PPM} />;
       case 'textblock':
         return <TextBlockTooltip tooltip={tooltip} pixelsPerMeter={PPM} />;
       case 'video':
