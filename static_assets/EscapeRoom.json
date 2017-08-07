@@ -6,21 +6,24 @@
       "navButton": {
          "onEnter": {
             "uri": "switch-flip.wav",
-            "attributionUri": "https://www.freesound.org/people/ianstargem/sounds/278205/"
+            "attributionUri": "https://www.freesound.org/people/ianstargem/sounds/278205/",
+            "volume": 0.2
          },
          "onClick": {
             "uri": "menu-click.wav",
-            "attributionUri": "https://www.freesound.org/people/fins/sounds/146721/"
+            "attributionUri": "https://www.freesound.org/people/fins/sounds/146721/",
+             "volume": 0
          }
       },
       "infoButton": {
          "onEnter": {
             "uri": "switch-flip.wav",
-            "attributionUri": "https://www.freesound.org/people/ianstargem/sounds/278205/"
+            "attributionUri": "https://www.freesound.org/people/ianstargem/sounds/278205/",
+            "volume": 0
          }
       },
       "ambient": {
-         "uri": "cafe.wav",
+         "uri": "pantera.ogg",
          "attributionUri": "https://www.freesound.org/people/PapercutterJohn/sounds/322031/",
          "loop": true,
          "volume": 0
@@ -42,18 +45,12 @@
                "linkedPhotoId":"112355"
             },
             {
-               "text":"Way to Exit",
-               "rotationY": -45,
-               "linkedPhotoId":"112399"
-            },
-            {
-               "type": "image",
+               "type": "panelimage",
                "rotationY": 145,
-               "width": 1.020,
-               "height": 1.388,
-               "source":"chalkboard-menu.jpg",
-               "attribution": "Photo by currystrumpet on flickr",
-               "attributionUri": "https://www.flickr.com/photos/currystrumpet/7895715748"
+               "width": 1.280,
+               "height": 1.280,
+               "source": "phone.jpg",
+               "text": "Which the right charger for the phone? Click on it."
             }
          ]
       },
@@ -69,28 +66,25 @@
             },
             {
                "type": "panelimage",
-               "rotationY": 115,
+               "rotationY": -95,
                "width": 1.280,
                "height": 1.280,
-               "source": "task1.png",
-               "text": "Solve this task to move forward",
-               "attribution": "Photo by Will Shenton",
-               "attributionUri": "https://commons.wikimedia.org/wiki/File:The_Young_Laddie_Cocktail.jpg"
+               "source": "cat.jpg",
+               "text": "Belive or not there is a cat on the photo. Click on it and move to the next key."
             },
             {
-               "type": "textblock",
-               "title": "To ",
-               "text": "An American restaurant, bar, and private event space located in The Gansevoort Hotel in New York City, The Chester is designed to bring guests together at any time of day. It features a vibrant bar scene and a lively dining ara, as well as an exclusive boutique nightclub and outdoor beirgarten.",
-               "attribution": "360 Photos courtesy of Oyster.com, text from TheChester.com",
-               "rotationY": -30,
+               "type": "panelimage",
+               "rotationY": 10,
                "width": 1.5,
-               "height": 1.5
+               "height": 1.5,
+               "source": "car.jpg",
+               "text": "Which pit stop will the car reach? Click on it."
             },
             {
                "type": "video",
-               "rotationY": 80,
-               "width": 1,
-               "height": 1,
+               "rotationY": 115,
+               "width": 1.280,
+               "height": 1.280,
                "source":"IMG_7626.MOV",
                "muted":true
             }
@@ -101,26 +95,17 @@
          "uri":"2.jpg",
          "tooltips":[
             {
-               "text":"Restaurant",
-               "rotationY": 117.441,
-               "linkedPhotoId":"112362"
+               "text":"Way to Exit",
+               "rotationY": -120,
+               "linkedPhotoId":"112399"
             },
             {
                "type": "video",
-               "rotationY": 80,
+               "rotationY": -20,
                "width": 2.560,
                "height": 1.240,
                "source":"IMG_7627.MOV",
                "muted":true
-            },
-            {
-               "type": "image",
-               "rotationY": -53,
-               "width": 1.020,
-               "height": 1.388,
-               "source":"chalkboard-menu.jpg",
-               "attribution": "Photo by currystrumpet on flickr",
-               "attributionUri": "https://www.flickr.com/photos/currystrumpet/7895715748"
             }
          ]
       },
@@ -131,25 +116,31 @@
             {
                "text":"EXIT",
                "rotationY": 150,
-               "linkedPhotoId":"112362"
+               "linkedPhotoId":"112340"
             },
             {
+               "type": "panelimage",
+               "rotationY": -53,
+               "width": 1.5,
+               "height": 1.5,
+               "source": "task1.png",
+               "text": "Which tank will fill first?  Click on it."
+            }
+         ]
+      },
+      "112340":{
+         "rotationOffset": 90,
+         "uri":"last.jpg",
+         "tooltips":[
+            {
                "type": "video",
-               "rotationY": 80,
+               "rotationY": 120,
                "width": 2.560,
                "height": 1.240,
                "source":"IMG_7628.MOV",
                "muted":true
-            },
-            {
-               "type": "image",
-               "rotationY": -53,
-               "width": 1.020,
-               "height": 1.388,
-               "source":"chalkboard-menu.jpg",
-               "attribution": "Photo by currystrumpet on flickr",
-               "attributionUri": "https://www.flickr.com/photos/currystrumpet/7895715748"
             }
+
          ]
       }
    }

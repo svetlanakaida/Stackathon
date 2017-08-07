@@ -164,34 +164,7 @@ class PanelImageTooltip extends React.Component {
             }}>
             {tooltip.text}
           </Text>
-         <Text
-            style={{
-              color: 'white',
-              fontSize: fontSize.text,
-              textAlignVertical: 'center',
-            }}>
-            {tooltip.text}
-          </Text>
-          <VrButton>
-           <Image
-          style={{
-            height: 0.3 * PPM,
-            width: 0.3 * PPM,
-            flexDirection: 'row',
-          }}
-          source= {{uri:"../static_assets/info_icon.png"}}>
-          </Image>
-          </VrButton>
-           <VrButton>
-           <Image
-          style={{
-            height: 0.3 * PPM,
-            width: 0.3 * PPM,
-            flexDirection: 'row',
-          }}
-          source= {{uri:"../static_assets/task1.png"}}>
-          </Image>
-          </VrButton>
+
           {tooltip.attribution &&
             <Text
               style={{
@@ -270,7 +243,7 @@ class VideoTooltip extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playerState: new MediaPlayerState({autoPlay: true, muted: true}),
+      playerState: new MediaPlayerState({autoPlay: false, muted: false}),
     };
   }
 

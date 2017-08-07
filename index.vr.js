@@ -129,7 +129,7 @@ resetKey(){
     return (
 
       <View>
-       <Text> HI </Text>
+
         <View style={{transform: [{rotateY: rotation}]}}>
           {ambient &&
             <Sound
@@ -179,6 +179,17 @@ resetKey(){
                     // Iterate through items related to this location, creating either
                     // info buttons, which show tooltip on hover, or nav buttons, which
                     // change the current location in the tour.
+
+                   <Form
+                   key={index}
+                          onTooltipClick ={this.onTooltipClick}
+                          onEnterSound={asset(soundEffects.navButton.onEnter.uri)}
+                          pixelsPerMeter={PPM}
+                          source={asset('task1.png')}
+                          tooltip={tooltip}
+                          translateX={degreesToPixels(tooltip.rotationY)}
+                  />
+
                     if (tooltip.type) {
 
                       return (
@@ -190,7 +201,7 @@ resetKey(){
                           onTooltipClick ={this.onTooltipClick}
                           onEnterSound={asset(soundEffects.navButton.onEnter.uri)}
                           pixelsPerMeter={PPM}
-                          source={asset('info_icon.png')}
+                          source={asset('key1.png')}
                           tooltip={tooltip}
                           translateX={degreesToPixels(tooltip.rotationY)}
                         />

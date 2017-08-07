@@ -89,29 +89,7 @@ class Form extends React.Component {
         onExitSound={this.props.onExitSound}
         onLongClickSound={this.props.onLongClickSound}>
 
-        <Image
-          style={{
-            height: 0.3 * PPM,
-            width: 0.3 * PPM,
-            flexDirection: 'row',
-          }}
-          onEnter={() => {
-            this._fadeIn();
-          }}
-          source1={this.props.source1}>
 
-          <Animated.View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              opacity: this.state.opacityAnim,
-              paddingLeft: 0.4 * PPM,
-            }}
-            billboarding={'on'}>
-            <Tooltip pixelsPerMeter={PPM} tooltip={this.props.tooltip} />
-          </Animated.View>
-
-        </Image>
       </VrButton>
 
     );

@@ -28,8 +28,8 @@ import Tooltip from './Tooltip';
  */
 class InfoButton extends React.Component {
   static defaultProps = {
-    fadeIn: 500,
-    fadeOut: 500,
+    // fadeIn: 500,
+    // fadeOut: 500,
     height: 0.3,
     onInput: null,
     pixelsPerMeter: 1,
@@ -92,6 +92,7 @@ class InfoButton extends React.Component {
         onExit={() => {
           this._fadeOut();
         }}
+
         onClickSound={this.props.onClickSound}
         onEnterSound={this.props.onEnterSound}
         onExitSound={this.props.onExitSound}
@@ -115,7 +116,7 @@ class InfoButton extends React.Component {
               paddingLeft: 0.4 * PPM,
             }}
             billboarding={'on'}>
-            <Tooltip pixelsPerMeter={PPM} tooltip={this.props.tooltip} />
+            <Tooltip onTooltipClick={this.props.onTooltipClick} pixelsPerMeter={PPM} tooltip={this.props.tooltip} />
           </Animated.View>
 
         </Image>
